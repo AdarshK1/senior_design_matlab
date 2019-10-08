@@ -1,0 +1,27 @@
+%implements s0_b0_51ypo_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS0B18 = OpaqueTLCBlockFcn("Start", 0, 18, 0, 0)
+%assign tlcStartFcnOfS0B19 = OpaqueTLCBlockFcn("Start", 0, 19, 0, 0)
+%assign tlcStartFcnOfS0B20 = OpaqueTLCBlockFcn("Start", 0, 20, 0, 0)
+%assign tlcStartFcnOfS0B21 = OpaqueTLCBlockFcn("Start", 0, 21, 0, 0)
+%assign tlcStartFcnOfS0B22 = OpaqueTLCBlockFcn("Start", 0, 22, 0, 0)
+%<tlcStartFcnOfS0B18>\
+%<tlcStartFcnOfS0B19>\
+%<tlcStartFcnOfS0B20>\
+%<tlcStartFcnOfS0B21>\
+%<tlcStartFcnOfS0B22>\
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%endfunction

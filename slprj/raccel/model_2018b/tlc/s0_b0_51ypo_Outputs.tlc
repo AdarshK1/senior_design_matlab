@@ -1,0 +1,91 @@
+%implements s0_b0_51ypo_Outputs "C"
+
+%function OutputsForTID(block, system, tid) Output
+%if tid == 0
+%assign ::GlobalCurrentTID = 0
+%<SLibCGIRAccessLocalVar(10, 0, "")> %% igz32v1ku4
+%<SLibCGIRAccessLocalVar(9, 0, "")> %% cnh055lcpi
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcOutputsFcnOfS0B14 = OpaqueTLCBlockFcn("Outputs", 0, 14, 0, 2)
+%assign tlcOutputsFcnOfS0B15 = OpaqueTLCBlockFcn("Outputs", 0, 15, 0, 2)
+%assign tlcOutputsFcnOfS0B17 = OpaqueTLCBlockFcn("Outputs", 0, 17, 0, 2)
+%assign tlcOutputsFcnOfS0B18 = OpaqueTLCBlockFcn("Outputs", 0, 18, 0, 2)
+%assign tlcOutputsFcnOfS0B19 = OpaqueTLCBlockFcn("Outputs", 0, 19, 0, 2)
+%assign tlcOutputsFcnOfS0B20 = OpaqueTLCBlockFcn("Outputs", 0, 20, 0, 2)
+%assign tlcOutputsFcnOfS0B21 = OpaqueTLCBlockFcn("Outputs", 0, 21, 0, 2)
+%assign tlcOutputsFcnOfS0B22 = OpaqueTLCBlockFcn("Outputs", 0, 22, 0, 2)
+%<SLibGetRootInportsFromFile(system, TLC_FALSE)>
+%<SLibGenerateExtModeOutput(system)>
+if (%<(SLibCGIRIsSampleHit(0, 0))>) {
+    igz32v1ku4[0] = rtB.exsg2hwjws;
+%<tlcOutputsFcnOfS0B14>\
+    cnh055lcpi[0] = rtB.aaj10rwtib;
+    cnh055lcpi[1] = rtP.width;
+    cnh055lcpi[2] = rtP.height;
+    cnh055lcpi[3] = rtP.length;
+%<tlcOutputsFcnOfS0B15>\
+    rtB.nxyhffc2m0 = 37.5 * rtB.djhcbyiciz;
+    igz32v1ku4[1] = rtB.nxyhffc2m0;
+    igz32v1ku4[2] = rtP.f_t;
+%<tlcOutputsFcnOfS0B17>\
+%<tlcOutputsFcnOfS0B18>\
+%<tlcOutputsFcnOfS0B19>\
+%<tlcOutputsFcnOfS0B20>\
+%<tlcOutputsFcnOfS0B21>\
+%<tlcOutputsFcnOfS0B22>\
+}
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%assign ::GlobalCurrentTID = []
+%endif
+%if tid == 1
+%assign ::GlobalCurrentTID = 1
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+real_T tmp;
+%closefile localVarDecl
+rtB.exsg2hwjws = 1000.0 * rtP.length / 0.001;
+tmp = (muDoubleScalarPower(rtP.height, 2.0) + muDoubleScalarPower(rtP.width, 2.0)) / 2.0;
+if (tmp < 0.0) {
+    tmp = -muDoubleScalarSqrt(-tmp);
+} else {
+    tmp = muDoubleScalarSqrt(tmp);
+}
+rtB.oztpx2mee1[0] = (((((((3.14159 * rtP.height * rtP.width * rtP.length / 4.0 * (rtP.density_of_foam * rtP.percent_of_hull_with_foam) + (3.1415926535897931 * rtP.height * rtP.width / 2.0 + 3.1415926535897931 * rtP.length * tmp) * (rtP.thickness_of_cf * rtP.density_of_cf)) + rtP.weight_of_junction_box) + rtP.weight_of_battery) + rtP.weight_of_motors) + rtP.weight_of_other_electronics) + rtP.weight_of_payload) + rtP.weight_of_frame) * (1.0 / rtP.water_density_Value) / rtP.length;
+rtB.oztpx2mee1[1] = rtP.width;
+rtB.oztpx2mee1[2] = rtP.height;
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutput1LocalVars", localVarDecl)>
+%assign ::GlobalCurrentTID = []
+%endif
+%endfunction
+%function OutputsFcnProtoTypeForTID(block, system, tid) Output
+%if tid == 0
+%assign ::GlobalCurrentTID = 0
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs0(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%assign ::GlobalCurrentTID = []
+%endif
+%if tid == 1
+%assign ::GlobalCurrentTID = 1
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs1(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%assign ::GlobalCurrentTID = []
+%endif
+%endfunction
