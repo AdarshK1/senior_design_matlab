@@ -92,7 +92,7 @@ fiberg_tensilestrength=fiberg_tensilestrength.*6804.76; %unit=Pa
 
 %% Loops through and calls simulink
 
-solution_matrix = [];
+
 
 % number of batteries
 % thrust settings, every other number bw 1650 and 1900, only @ 12v
@@ -111,8 +111,11 @@ thickness_of_materials = 0:0.001:0.008;
 density_of_materials = 1400:50:1650;
 percentages_of_hull_filled_w_foam = 0.30:0.1:1.0;
 
-disp(length(length_range) * length(width_range) * length(height_range) * length(battery_counts) * length(pwm_starts) * length(thickness_of_materials) * length(density_of_materials) * length(percentages_of_hull_filled_w_foam));
+num_trials = length(length_range) * length(width_range) * length(height_range) * length(battery_counts) * length(pwm_starts) * length(thickness_of_materials) * length(density_of_materials) * length(percentages_of_hull_filled_w_foam);
+disp(num_trials);
 
+solution_matrix = []; %zeros(1, num_trials);
+index = 1;
 for pwm_start=pwm_starts
     for battery_count=battery_counts
         for thickness_of_material=thickness_of_materials
@@ -134,11 +137,18 @@ for pwm_start=pwm_starts
                                     out.battery_life(5) out.cruising_velocity(5) ...
                                     out.height_best(5) out.max_stress_impulse(5) ...
                                     out.max_stress_paper(5) out.wetted_surface_area(5)];
+%                                 solution_matrix(:, index) = [ height width length percent_of_hull_with_foam ...
+%                                     density_of_material thickness_of_material battery_count pwm_start f_t ...
+%                                     out.battery_life(5) out.cruising_velocity(5) ...
+%                                     out.height_best(5) out.max_stress_impulse(5) ...
+%                                     out.max_stress_paper(5) out.wetted_surface_area(5)];
+                                
                                 
                             end
                         end
                     end
                 end
+                writematrix(solution_matrix, "solutionmatrix.xlsx")
             end
         end
     end
