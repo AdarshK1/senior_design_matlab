@@ -165,6 +165,7 @@ for pwm_start=pwm_starts
                                 in(index) = setBlockParameter(in(index), [model '/p_foam'], 'Value', num2str(density_of_foam) );
                                 in(index) = setBlockParameter(in(index), [model '/voltage'], 'Value', num2str(voltage) );
                                 in(index) = setBlockParameter(in(index), [model '/water_density'], 'Value', num2str(water_density) );
+                                in(index) = setBlockParameter(in(index), [model '/water_viscosity'], 'Value', num2str(water_viscosity) );
                                 in(index) = setBlockParameter(in(index), [model '/weight_of_frame'], 'Value', num2str(weight_of_frame) );
                                 in(index) = setBlockParameter(in(index), [model '/weight_of_junction_box'], 'Value', num2str(weight_of_junction_box) );
                                 in(index) = setBlockParameter(in(index), [model '/weight_of_motors'], 'Value', num2str(weight_of_motors) );
@@ -185,4 +186,4 @@ for pwm_start=pwm_starts
         end
     end
 end
-% out = parsim(in, 'ShowProgress', 'on');
+% out = parsim(in, 'UseFastRestart', 'on', 'ShowSimulationManager','on', 'ShowProgress', 'on');
