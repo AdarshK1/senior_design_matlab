@@ -141,6 +141,11 @@ for pwm_start=pwm_starts
                                 
                                 
                                 in(index) = Simulink.SimulationInput(model);
+                                
+                                % Because matlab is a little shit, if you
+                                % use a simulation input object, you then
+                                % have to pass in ALL variables that are
+                                % set to constant values from the workspace
                                 in(index) = setBlockParameter(in(index), [model '/thickness_of_cf'], 'Value', num2str(thickness_of_material) );
                                 in(index) = setBlockParameter(in(index), [model '/length'], 'Value', num2str(length) );
                                 in(index) = setBlockParameter(in(index), [model '/width'], 'Value', num2str(width) );
@@ -172,9 +177,6 @@ for pwm_start=pwm_starts
                                 if mod(index, 100)==0
                                     disp(index);
                                 end
-                                
-
-                                
                             end
                         end
                     end
