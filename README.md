@@ -1,4 +1,4 @@
-# senior_design_matlab
+# MARV Simulink/Matlab
 
 ![MARV Render](img/front_iso_folded_4k_payload.png)
 
